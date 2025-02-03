@@ -2,13 +2,8 @@ import os
 import cv2
 import numpy as np
 
-#p = []
-#for i in os.listdir(r'/Users/berrasezer/Desktop/gettingstarted/testface/face/facetrain'):
-#    p.append(i)
-#print(p)
-
-people = ['berra', 'pelin', 'reyhan', 'zeirko', 'irem', 'annem', 'melek']
-DIR = r'/Users/berrasezer/Desktop/face/facetrain'
+people = [###use the names on trained photo files]
+DIR = r'###path to trained photos file'
 
 haar = cv2.CascadeClassifier('haar_faces.xml')
 
@@ -22,20 +17,12 @@ def createTrain():
 
         for img in os.listdir(path):
 
-            if img.startswith('.'): # to delete .ds_store files!!! look what are those???
+            if img.startswith('.'):
                 continue
             
             imgpath = os.path.join(path, img)
 
-#            if not os.path.exists(imgpath):
-#                print(f"Error: File does not exist at {imgpath}")
-#                continue
-
-#            print(f"Loading image from {imgpath}")
             imgarray = cv2.imread(imgpath)
-#            if imgarray is None:
-#                print(f"Error: Could not load image at {imgpath}")
-#                continue
 
             gray = cv2.cvtColor(imgarray, cv2.COLOR_BGR2GRAY)
 
@@ -49,9 +36,6 @@ def createTrain():
 
 createTrain()
 print('training done!!!')
-
-#print(f'Length of the features = {len(features)}')
-#print(f'Length of the labels = {len(labels)}')
 
 features = np.array(features, dtype='object')
 labels = np.array(labels)
