@@ -3,17 +3,14 @@ import cv2
 
 haar = cv2.CascadeClassifier('haar_faces.xml')
 
-people = ['berra', 'pelin', 'reyhan', 'zeirko', 'irem', 'annem', 'melek']
-#features = np.load('features.npy')
-#labels = np.load('labels.npy')
+people = [###use the names on the trained photos file]
 
 facerecog = cv2.face.LBPHFaceRecognizer_create()
 facerecog.read('face_trained.yml')
 
-img = cv2.imread(r'/Users/berrasezer/Desktop/face/facevalue/mix/aile/IMG_7464.jpeg')
+img = cv2.imread(r'###path to one of the photos in valued photos file')
 
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-#cv2.imshow('person', gray)
 
 facesrect = haar.detectMultiScale(gray, 1.7, 7)
 
