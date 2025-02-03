@@ -3,9 +3,7 @@ import cv2
 
 haar = cv2.CascadeClassifier('haar_faces.xml')
 
-people = ['berra', 'pelin', 'reyhan', 'zeirko', 'irem', 'annem', 'melek']
-#features = np.load('features.npy')
-#labels = np.load('labels.npy')
+people = [###use the names on trained photos file]
 
 facerecog = cv2.face.LBPHFaceRecognizer_create()
 facerecog.read('face_trained.yml')
